@@ -56,15 +56,3 @@ end
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-def apply_clearance(cart)
-
- 
-  cart.each do |item, details|
-    if cart[item][:clearance] == true
-      cart[item][:price] = (cart[item][:price]*0.20 - total)
-    end
-  end
-  cart
-end
-
-apply_clearance(cart)
