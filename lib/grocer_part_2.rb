@@ -57,4 +57,4 @@ end
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   
-  def apply_coupons
+  def apply_coupons 
