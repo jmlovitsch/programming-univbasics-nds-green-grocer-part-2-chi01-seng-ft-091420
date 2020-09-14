@@ -57,23 +57,13 @@ end
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   
-def apply_coupons(cart, coupons) 
-  
-  coupons.each do |coupon| 
-    coupon.each do |attribute, value| 
-      name = coupon[:item] 
-    
-      if cart[name] && cart[name][:count] >= coupon[:num] 
-        if cart["#{name} W/COUPON"] 
-          cart["#{name} W/COUPON"][:count] += 1 
-        else 
-          cart["#{name} W/COUPON"] = {:price => coupon[:cost], 
-          :clearance => cart[name][:clearance], :count => 1} 
-        end 
-  
-      cart[name][:count] -= coupon[:num] 
-    end 
-  end 
-end 
-  cart 
+def apply_clearance(cart)
+
+ 
+  cart.each do |item, details|
+    if cart[item][:clearance] == true
+      cart[item][:price] = (cart[item][:price]*0.20 - total)
+    end
+  end
+  cart
 end
